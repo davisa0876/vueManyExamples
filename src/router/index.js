@@ -11,6 +11,12 @@ import Example7ComplexTypeChecking from '@/views/examples/Example7ComplexTypeChe
 import Example8ProvideInjectPartOne from '@/views/examples/Example8ProvideInjectPartOne.vue'
 import Example9ProvideInjectPartTwo from '@/views/examples/Example9ProvideInjectPartTwo.vue'
 import Example10Slots from '@/views/examples/Example10Slots.vue'
+import Example11NamedSlots from '@/views/examples/Example11NamedSlots.vue'
+import Example12ComponentLifecycle from '@/views/examples/Example12ComponentLifecycle.vue'
+import Example13UsingTheLifecycles from '@/views/examples/Example13UsingTheLifecycles.vue'
+import Example14DynamicComponents from '@/views/examples/Example14DynamicComponents.vue'
+import Example15KeepAlive from '@/views/examples/Example15KeepAlive.vue'
+import Example16Teleport from '@/views/examples/Example16Teleport.vue'
 
 const routes = [
   {
@@ -62,6 +68,36 @@ const routes = [
     path: '/example10',
     name: 'Example10',
     component: Example10Slots
+  },
+  {
+    path: '/example11',
+    name: 'Example11',
+    component: Example11NamedSlots
+  },
+  {
+    path: '/example12',
+    name: 'Example12',
+    component: Example12ComponentLifecycle
+  },
+  {
+    path: '/example13',
+    name: 'Example13',
+    component: Example13UsingTheLifecycles
+  },
+  {
+    path: '/example14',
+    name: 'Example14',
+    component: Example14DynamicComponents
+  },
+  {
+    path: '/example15',
+    name: 'Example15',
+    component: Example15KeepAlive
+  },
+  {
+    path: '/example16',
+    name: 'Example16',
+    component: Example16Teleport
   }
 ]
 
