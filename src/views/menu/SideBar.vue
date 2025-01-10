@@ -92,15 +92,35 @@
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/example15" class="block py-1 px-2 rounded hover:bg-gray-200">
-              15: Keep Alive
-            </RouterLink>
-          </li>
-          <li>
             <RouterLink to="/example16" class="block py-1 px-2 rounded hover:bg-gray-200">
               16: Teleport
             </RouterLink>
           </li>
+          <li>
+            <RouterLink to="/example17" class="block py-1 px-2 rounded hover:bg-gray-200">
+              17: Custom Directives
+            </RouterLink>
+          </li>         
+          <li>
+            <RouterLink to="/Example17-local" class="block py-1 px-2 rounded hover:bg-gray-200">
+              17: Custom Directives(LOCAL)
+            </RouterLink>
+          </li>   
+          <li>
+            <RouterLink to="/example18" class="block py-1 px-2 rounded hover:bg-gray-200">
+              18: Custom Directives Hooks
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/example19" class="block py-1 px-2 rounded hover:bg-gray-200">
+              19: Local Custom Directive 1 
+            </RouterLink>
+          </li>    
+          <li>
+            <RouterLink to="/Example19-OnOff" class="block py-1 px-2 rounded hover:bg-gray-200">
+              19: Local Custom Directive 2
+            </RouterLink>
+          </li>        
         </ul>
       </nav>
     </transition>

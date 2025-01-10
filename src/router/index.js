@@ -17,6 +17,12 @@ import Example13UsingTheLifecycles from '@/views/examples/Example13UsingTheLifec
 import Example14DynamicComponents from '@/views/examples/Example14DynamicComponents.vue'
 import Example15KeepAlive from '@/views/examples/Example15KeepAlive.vue'
 import Example16Teleport from '@/views/examples/Example16Teleport.vue'
+import Example17CustomDirectives from '@/views/examples/Example17CustomDirectives.vue'
+import Example17CustomDirectivesLocal from '@/views/examples/Example17CustomDirectivesLocal.vue'
+
+import Example18CustomDirectivesHooks from '@/views/examples/Example18CustomDirectivesHooks.vue'
+import Example19LocalDirective from '@/views/examples/Example19LocalDirective.vue'
+import Example19LocalDirectiveOnOff from '@/views/examples/Example19LocalDirectiveOnOff.vue'
 
 const routes = [
   {
@@ -98,7 +104,36 @@ const routes = [
     path: '/example16',
     name: 'Example16',
     component: Example16Teleport
-  }
+  },
+  {
+    path: '/example17',
+    name: 'Example17',
+    component: Example17CustomDirectives
+  },
+  {
+    path: '/example17-local',
+    name: 'Example17-local',
+    component: Example17CustomDirectivesLocal
+  },
+  {
+    path: '/example18',
+    name: 'Example18',
+    component: Example18CustomDirectivesHooks
+  },
+  {
+    path: '/example19',
+    name: 'Example19',
+    component: Example19LocalDirective
+  } ,
+  {
+    path: '/example19-OnOff',
+    name: 'Example19-OnOff',
+    component: Example19LocalDirectiveOnOff
+  } 
+
+
+
+  
 ]
 
 const router = createRouter({
