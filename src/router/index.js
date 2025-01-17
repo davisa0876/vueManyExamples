@@ -19,10 +19,13 @@ import Example15KeepAlive from '@/views/examples/Example15KeepAlive.vue'
 import Example16Teleport from '@/views/examples/Example16Teleport.vue'
 import Example17CustomDirectives from '@/views/examples/Example17CustomDirectives.vue'
 import Example17CustomDirectivesLocal from '@/views/examples/Example17CustomDirectivesLocal.vue'
-
 import Example18CustomDirectivesHooks from '@/views/examples/Example18CustomDirectivesHooks.vue'
 import Example19LocalDirective from '@/views/examples/Example19LocalDirective.vue'
 import Example19LocalDirectiveOnOff from '@/views/examples/Example19LocalDirectiveOnOff.vue'
+
+import crawl from '@/views/crawl/CrawlerView.vue'
+
+import dashboard from '@/views/Dashboard.vue'
 
 const routes = [
   {
@@ -130,8 +133,18 @@ const routes = [
     name: 'Example19-OnOff',
     component: Example19LocalDirectiveOnOff
   } 
-
-
+  ,
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: dashboard
+  },
+  {
+    path: '/crawler',
+    name: 'crawler',
+    component: crawl
+  }
+  
 
   
 ]

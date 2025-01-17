@@ -6,7 +6,6 @@ import './assets/main.css'
 import router from './router/index.js'
 import uppercase from '@/directives/uppercase.js'
 import lifecycleLogger from '@/directives/lifecycleLogger.js'
-
 // Create the Vue app
 const app = createApp(App)
 
@@ -21,4 +20,5 @@ app.directive('uppercase', uppercase)
 app.directive('lifecycle-logger', lifecycleLogger)
 
 app.use(router)
+
 app.mount('#app')

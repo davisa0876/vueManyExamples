@@ -11,14 +11,6 @@ const getAuthHeaders = (token) => {
   return token ? { Authorization: `Bearer ${token}` } : {};
 };
 
-/*Function to handle 401 Unauthorized responses
-const handleUnauthorized = () => {
-  localStorage.removeItem('authToken');
-  notify({ type: 'error', text: 'Session expired. Please log in again.' });
-  window.location = '/login';  // Redirect to login
-};*/
-
-
 // Wrapper function for GET requests
 export const get = async (url, token, options = {}) => {
   const { params, ...restOptions } = options;

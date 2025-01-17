@@ -1,6 +1,19 @@
 <!-- src/components/Sidebar.vue -->
 <template>
   <aside class="bg-gray-100 w-64 min-h-screen p-4 border-r border-gray-200">
+    <div class="cursor-pointer flex items-center justify-between mb-2">
+      <RouterLink to="/dashboard" class="text-lg font-semibold">
+        Dasboard
+      </RouterLink>
+      <i class="fa-solid fa-house"></i>
+    </div>
+    <div class="cursor-pointer flex items-center justify-between mb-2">
+      <RouterLink to="/Crawler" class="text-lg font-semibold">
+        Clawler
+      </RouterLink>
+      <i class="fas fa-spider"></i>
+    </div>
+
     <div class="cursor-pointer flex items-center justify-between mb-2" @click="toggleOpen">
       <h2 class="text-lg font-semibold">Examples</h2>
       <i class="fas" :class="isOpen ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
@@ -130,7 +143,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const isOpen = ref(true)
+const isOpen = ref(false)
 function toggleOpen() {
   isOpen.value = !isOpen.value
 }
