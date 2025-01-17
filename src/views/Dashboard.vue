@@ -2,7 +2,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
     <!-- Sample widgets -->
-    <WeatherWidget />
+    <WeatherCarousel />
     <CryptoWidget />
     <CurrencyWidget />
   </div>
@@ -10,7 +10,7 @@
 
 <script setup>
 // Example: import the widgets (if they are local .vue files)
-import WeatherWidget from './dashboard/WeatherWidget.vue'
+import WeatherCarousel from './dashboard/WeatherCarousel.vue'
 import CryptoWidget from './dashboard/CryptoWidget.vue'
 import CurrencyWidget from './dashboard/CurrencyWidget.vue'
 </script>
