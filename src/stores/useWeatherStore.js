@@ -1,22 +1,22 @@
+// src/stores/useWeatherStore.js
 import { defineStore } from 'pinia'
-import { fetchCityWeather } from '@/services/weatherService' // your existing function
+import { fetchCityWeather } from '@/services/weatherService.js'
 
 export const useWeatherStore = defineStore('weather', {
   state: () => ({
-    // e.g., { "London": {...}, "Paris": {...} }
+    // E.g. { 'London': { ...weatherData }, 'Paris': { ... } }
     weatherCache: {},
   }),
 
   actions: {
     async loadCityWeather(city) {
-      // If city is already cached, just return it
+      // If city is already cached, return that
       if (this.weatherCache[city]) {
         return this.weatherCache[city]
       }
       // Otherwise, fetch from your local or external API
       try {
         const data = await fetchCityWeather(city)
-        // Store it in the cache
         this.weatherCache[city] = data
         return data
       } catch (err) {
@@ -24,14 +24,5 @@ export const useWeatherStore = defineStore('weather', {
         throw err
       }
     },
-
-    // Optional: Clear or update the cache if you want
-    clearWeather(city) {
-      if (city) {
-        delete this.weatherCache[city]
-      } else {
-        this.weatherCache = {}
-      }
-    }
-  }
+  },
 })
