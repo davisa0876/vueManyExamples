@@ -4,7 +4,32 @@ import { notify } from '@kyvg/vue3-notification';  // Import notification
 // Create Axios instance with base URL
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }
 });
+
+// Add a request interceptor to add the auth token
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Add a response interceptor to handle errors
+api.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      // Optionally redirect to login page
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Helper function to get Authorization headers
 const getAuthHeaders = (token) => {
@@ -107,3 +132,5 @@ export const download = async (url, token, fileName, config = {}) => {
     throw error;
   }
 };
+
+export default api;

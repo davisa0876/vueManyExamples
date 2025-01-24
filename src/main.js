@@ -1,12 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
+import router from './router'
+import store from './store'
 
 // Import Tailwind
 import './assets/main.css'
-
-// Import your router
-import router from './router/index.js'
 
 // Example custom directives
 import uppercase from '@/directives/uppercase.js'
@@ -23,6 +22,9 @@ app.use(pinia)
 
 // Use the router
 app.use(router)
+
+// Use the store
+app.use(store)
 
 // Example global directive: v-focus
 app.directive('focus', {

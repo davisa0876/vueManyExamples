@@ -26,7 +26,6 @@
 import { ref, onMounted } from 'vue'
 // src/views/dashboard/WeatherWidget.vue
 import Card from '@/components/dashboard/homeCard.vue'
-
 import { fetchCityWeather } from '@/services/weatherService.js'
 
 const city = 'London'

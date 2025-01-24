@@ -25,11 +25,40 @@ import Example19LocalDirectiveOnOff from '@/views/examples/Example19LocalDirecti
 
 import crawl from '@/views/crawl/CrawlerView.vue'
 
-import dashboard from '@/views/Dashboard.vue'
+import store from '@/store'
 
 const routes = [
   {
     path: '/',
+    redirect: to => {
+      return store.getters['auth/isAuthenticated'] ? '/dashboard' : '/login'
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/auth/LoginView.vue'),
+    meta: { requiresGuest: true }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('@/views/auth/RegisterView.vue'),
+    meta: { requiresGuest: true }
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('@/views/DashboardView.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/crawler',
+    name: 'crawler',
+    component: () => import('@/views/crawl/CrawlerView.vue')
+  },
+  {
+    path: '/Example1',
     name: 'Example1',
     component: Example1HelloWorld
   },
@@ -127,31 +156,37 @@ const routes = [
     path: '/example19',
     name: 'Example19',
     component: Example19LocalDirective
-  } ,
+  },
   {
     path: '/example19-OnOff',
     name: 'Example19-OnOff',
     component: Example19LocalDirectiveOnOff
-  } 
-  ,
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: dashboard
   },
   {
-    path: '/crawler',
-    name: 'crawler',
-    component: crawl
+    path: '/:pathMatch(.*)*',
+    redirect: to => {
+      return store.getters['auth/isAuthenticated'] ? '/dashboard' : '/login'
+    }
   }
-  
-
-  
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = store.getters['auth/isAuthenticated']
+  const publicRoutes = ['/login', '/register']
+
+  // Always redirect to login if not authenticated (except for public routes)
+  if (!isAuthenticated && !publicRoutes.includes(to.path)) {
+    next('/login')
+  } else if (isAuthenticated && publicRoutes.includes(to.path)) {
+    next('/dashboard')
+  } else {
+    next()
+  }
 })
 
 export default router
