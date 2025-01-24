@@ -1,6 +1,84 @@
-# adminvue
+# Vue 3 Admin Dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+A Vue 3 admin dashboard with authentication, dynamic routing, and example components. This project demonstrates best practices for building a modern Vue.js application with authentication and protected routes.
+
+## Dependencies
+
+This frontend project requires the Laravel backend API which can be found at:
+[https://github.com/davisa0876/laravelProjectAPI](https://github.com/davisa0876/laravelProjectAPI)
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Laravel backend API running on http://localhost:8000
+- MySQL/MariaDB database
+
+## Installation
+
+### 1. Backend Setup (Laravel API)
+
+First, clone and setup the Laravel backend:
+
+```bash
+# Clone the Laravel backend
+git clone https://github.com/davisa0876/laravelProjectAPI
+cd laravelProjectAPI
+
+# Install PHP dependencies
+composer install
+
+# Copy environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+
+# Configure your database in .env file
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=8080
+DB_DATABASE=contenthubDB
+DB_USERNAME=UserProjet
+DB_PASSWORD=contentUser1Laravel!23
+
+# Run migrations
+php artisan migrate
+
+# Start the Laravel server
+php artisan serve
+```
+
+### 2. Frontend Setup (Vue Admin)
+
+```bash
+# Clone this repository
+git clone <repository-url>
+cd admin
+
+# Install dependencies
+npm install
+
+# Create .env file
+echo "VITE_API_BASE_URL=http://localhost:8000/api" > .env
+
+# Start development server
+npm run dev
+```
+
+## Features
+
+- 🔐 Authentication (Login/Register)
+- 🛡️ Protected Routes
+- 🎨 Tailwind CSS Styling
+- 📱 Responsive Design
+- 🔄 Vuex State Management
+- 📝 Form Validation
+- 🚦 Route Guards
+- 🌐 API Integration
+- 📚 Multiple Example Components
+- 🎯 Custom Directives
+- 🔧 Component Lifecycle Examples
 
 ## Recommended IDE Setup
 
